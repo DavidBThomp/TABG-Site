@@ -10,15 +10,19 @@
   width: 200px;
   height: 200px;
   border: red 5px solid;
-  position: relative;
-  z-index: 1;
 }
 
 /* The img was covering the z-index, so this will do... */
-.item img {
+.item img,
+.item h2 {
   pointer-events: none; /* Disable mouse events on the image */
 }
 
 .completed {
   border: green 5px solid;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
