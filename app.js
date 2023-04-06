@@ -55,7 +55,7 @@ for (let item of readData) {
         div.classList.add('completed')
     }
 
-    div.innerHTML += `<h2>${item.name}</h2><div class="imgHolder"><img src="${item.img}" alt=""></div>`
+    div.innerHTML += `<h2>${item.name}</h2><div class="imgContainer"><img src="${item.img}" alt="TABG Weapon"></div>`
 
     // Append the newly created div to item holder
     itemHolder.appendChild(div)

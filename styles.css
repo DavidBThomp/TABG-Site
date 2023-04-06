@@ -1,12 +1,28 @@
-*, html {
+* {
   box-sizing: border-box;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+.containter {
+  margin: 0 auto;
+  max-width: 1400px;
+  text-align: center;
+}
+
+button {
+
 }
 
 .itemHolder {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .item {
+  z-index: 1;
   width: 200px;
   height: 200px;
   border: red 5px solid;
@@ -18,11 +34,23 @@
   pointer-events: none; /* Disable mouse events on the image */
 }
 
+h2 {
+  margin: 0px;
+  text-align: center;
+}
+
 .completed {
   border: green 5px solid;
 }
 
+.imgContainer {
+  height: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
 img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  pointer-events: none;
+  height: calc(100% - 27px);
 }
