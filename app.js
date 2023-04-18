@@ -4,8 +4,7 @@
 
 // Data to be used if not found already in localStorage
 // This will be used to originally write to localStorage when page is first loaded
-const data= [
-    {
+const data = [{
         name: "Luger1",
         img: "./Luger.webp",
         status: true
@@ -36,8 +35,6 @@ if (browserData === null) {
 let readData = JSON.parse(browserData);
 
 
-
-
 // Get the top level conatiner
 const itemHolder = document.querySelector(".itemHolder");
 
@@ -62,9 +59,6 @@ for (let item of readData) {
 }
 
 
-
-
-
 // User Click on .item (Boxes)
 const items = document.querySelectorAll(".item");
 
@@ -77,12 +71,14 @@ const buttonPressed = e => {
     // This changes the data
     // Fetch data in case their was update before
     let updatedData = JSON.parse(localStorage.getItem("data"));
-    
 
     let newData = updatedData.map((item) => {
-        if (item.name === idClicked){
-            return {...item, 'status': !item.status}
-        } 
+        if (item.name === idClicked) {
+            return {
+                ...item,
+                'status': !item.status
+            }
+        }
 
         return item
     })
@@ -96,3 +92,31 @@ const buttonPressed = e => {
 for (let itemClicked of items) {
     itemClicked.addEventListener("click", buttonPressed);
 }
+
+
+// Reset Tracker
+const resetGame = () => {
+    console.log("Reset Game");
+
+    // Fetch data in case their was update before
+    let updatedData = JSON.parse(localStorage.getItem("data"));
+
+    // Create new Array for LocalStorage
+    let newData = updatedData.map((item) => {
+        item = {
+            ...item,
+            'status': false
+        }
+        return item
+    })
+
+    // Stringify Data and put into browser
+    let browserNewData = JSON.stringify(newData);
+    localStorage.removeItem("data");
+    localStorage.setItem("data", browserNewData);
+    location.reload();
+}
+
+const reset = document.querySelector('#new-game');
+
+reset.addEventListener("click", resetGame);

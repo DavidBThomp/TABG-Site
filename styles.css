@@ -12,8 +12,15 @@ h1, h3 {
   text-align: center;
 }
 
-button {
+.buttonTest {
+  text-align: center;
+  margin: 20px 0;
+}
 
+#new-game {
+  padding: 20px;
+  border: solid 2px red;
+  border-radius: 10%;
 }
 
 .itemHolder {
